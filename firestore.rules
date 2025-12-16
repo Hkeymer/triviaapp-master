@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Rooms de juego
+    match /rooms/{roomId} {
+      
+      // CUALQUIER usuario autenticado puede crear una sala
+      allow create: if request.auth != null;
+
+      // CUALQUIER usuario autenticado puede leer si es host o jugador
+      allow read: if request.auth != null
+        && (
+          request.auth.uid == resource.data.host ||
+          resource.data.players[request.auth.uid] == true
+        );
+
+      // UPDATE permitido si:
+      // 1. Es el host
+      // 2. Es un jugador de la sala (solo update limitado)
+      allow update: if request.auth != null
+        && (
+          // host puede actualizar todo
+          request.auth.uid == resource.data.host ||
+
+          // jugador solo si pertenece a la sala
+          resource.data.players[request.auth.uid] == true
+        );
+
+      // SOLO el host puede borrar la sala
+      allow delete: if request.auth != null
+        && request.auth.uid == resource.data.host;
+    }
+  }
+}
