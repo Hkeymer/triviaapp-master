@@ -19,7 +19,7 @@ class SocialButton extends StatelessWidget {
 
     return OutlinedButton.icon(
       style: OutlinedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         side: const BorderSide(color: Colors.black12),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black87,
@@ -34,7 +34,7 @@ class SocialButton extends StatelessWidget {
           );
         }
       },
-      icon: Image.asset(assetPath, height: 22),
+      icon: Image(image: AssetImage(assetPath), height: 20),
       label: Text(text),
     );
   }

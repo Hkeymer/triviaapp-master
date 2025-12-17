@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static const Color primarySeedColor = Colors.blueAccent;
+  static const Color primarySeedColor = Colors.orange;
 
   // Tipografías base sin color fijo
   static TextTheme baseTextTheme = TextTheme(

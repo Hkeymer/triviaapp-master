@@ -18,6 +18,7 @@ class AuthLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       body: Center(
@@ -26,10 +27,13 @@ class AuthLayout extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              Icon(Icons.quiz_outlined, size: 48, color: colorScheme.primary),
               const SizedBox(height: 20),
               Text(
                 title,
-                style: textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+                style: textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 8),
@@ -41,7 +45,7 @@ class AuthLayout extends StatelessWidget {
               const SizedBox(height: 40),
               form,
               const SizedBox(height: 30),
-              bottom
+              bottom,
             ],
           ),
         ),

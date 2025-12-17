@@ -7,6 +7,7 @@ class AuthInput extends StatelessWidget {
   final bool obscure;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
+  final IconData? prefixIcon;
 
   const AuthInput({
     super.key,
@@ -15,6 +16,7 @@ class AuthInput extends StatelessWidget {
     this.obscure = false,
     this.keyboardType = TextInputType.text,
     this.validator,
+    this.prefixIcon,
   });
 
   @override
@@ -26,13 +28,20 @@ class AuthInput extends StatelessWidget {
       validator: validator,
       decoration: InputDecoration(
         labelText: label,
+        prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
         labelStyle: TextStyle(color: Colors.grey[700]),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.primary,
+            width: 2,
+          ),
         ),
-        contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 16,
+          horizontal: 20,
+        ),
       ),
     );
   }
