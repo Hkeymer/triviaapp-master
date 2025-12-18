@@ -16,6 +16,7 @@ dependencies:
   google_fonts: ^6.3.1
   uuid: ^4.5.2
   share_plus: ^7.0.0
+  shared_preferences: ^2.2.2
   
   # firebese dependencies
   firebase_core: ^4.1.0
