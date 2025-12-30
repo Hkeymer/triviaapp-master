@@ -30,10 +30,7 @@ class _Countdown24hState extends State<Countdown24h> {
       _targetTime = DateTime.parse(stored);
     } else {
       _targetTime = DateTime.now().add(const Duration(hours: 24));
-      await prefs.setString(
-        _keyTargetTime,
-        _targetTime!.toIso8601String(),
-      );
+      await prefs.setString(_keyTargetTime, _targetTime!.toIso8601String());
     }
 
     _startTimer();
@@ -70,8 +67,8 @@ class _Countdown24hState extends State<Countdown24h> {
     final seconds = d.inSeconds % 60;
 
     return '${hours.toString().padLeft(2, '0')}:'
-           '${minutes.toString().padLeft(2, '0')}:'
-           '${seconds.toString().padLeft(2, '0')}';
+        '${minutes.toString().padLeft(2, '0')}:'
+        '${seconds.toString().padLeft(2, '0')}';
   }
 
   @override
@@ -84,8 +81,9 @@ class _Countdown24hState extends State<Countdown24h> {
   Widget build(BuildContext context) {
     return Text(
       _format(_remaining),
-      style: Theme.of(context).textTheme.headlineSmall ?.copyWith(
+      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
         color: Theme.of(context).colorScheme.primary,
+        fontSize: 20,
       ),
     );
   }

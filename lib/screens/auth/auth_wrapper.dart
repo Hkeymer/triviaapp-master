@@ -21,7 +21,7 @@ class AuthWrapper extends StatelessWidget {
 
         // Si el usuario ha iniciado sesión, muéstrale la pantalla de inicio
         if (snapshot.hasData) {
-          return const HomeScreen(); 
+          return HomeScreen();
         }
 
         // Si el usuario no ha iniciado sesión, muéstrale la pantalla de login

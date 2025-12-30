@@ -11,7 +11,7 @@ class GameScreen extends StatefulWidget {
   final bool autoShuffle;
   final bool readOnly;
   final Function(int finalScore)? onFinish;
-  final Difficulty difficulty;
+  final Difficulty? difficulty;
   final String topic; // NUEVO
 
   const GameScreen({
@@ -118,7 +118,7 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   int getTimePerQuestion() {
-    switch (widget.difficulty) {
+    switch (widget.difficulty ?? Difficulty.medium) {
       case Difficulty.easy:
         return 20;
       case Difficulty.medium:
